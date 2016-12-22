@@ -1,0 +1,54 @@
+{
+    "name": "complete-it",
+    "displayName": "Complete It",
+    "description": "Complete the current Typescript statement",
+    "version": "0.0.1",
+    "publisher": "dyoung",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.complete-it"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.complete-it",
+                "title": "Complete Typescript Statement"
+            }
+        ],
+        "keybindings": {
+            "command": "extension.complete-it",
+            "key": "shift+alt+enter",
+            "when": "editorTextFocus"
+        },
+        "configuration": {
+            "type": "object",
+            "title": "complete-it settings",
+            "properties": {
+                "complete-it.formatDocument": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Toggles whether or not to format the document when triggering statement completion"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}
